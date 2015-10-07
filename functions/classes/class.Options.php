@@ -1,0 +1,121 @@
+<?php
+/**
+**************************
+** FreeTSP Version: 1.0 **
+**************************
+** http://www.freetsp.info
+** https://github.com/Krypto/FreeTSP
+** Licence Info: GPL
+** Copyright (C) 2010 FreeTSP v1.0
+** A bittorrent tracker source based on TBDev.net/tbsource/bytemonsoon.
+** Project Leaders: Krypto, Fireknight.
+**/
+require_once(FUNC_DIR . 'define_bits.php');
+
+class options {
+	#User Flags...
+	#const USER_UNALLOCATED1		= BIT_1;
+	#const USER_UNALLOCATED2		= BIT_2;
+	#const USER_UNALLOCATED3		= BIT_3;
+	#const USER_UNALLOCATED4	    = BIT_4;
+	#const USER_UNALLOCATED5		= BIT_5;
+	#const USER_UNALLOCATED6		= BIT_6;
+	const USER_PM_NOTIFICATION		= BIT_7;
+	#const USER_UNALLOCATED8		= BIT_8;
+	const USER_SHOW_AVATARS			= BIT_9;
+	#const USER_UNALLOCATED10		= BIT_10;
+	#const USER_UNALLOCATED11		= BIT_11;
+	#const USER_UNALLOCATED12		= BIT_12;
+	#const USER_UNALLOCATED13		= BIT_13;
+	#const USER_UNALLOCATED14		= BIT_14;
+	#const USER_UNALLOCATED15		= BIT_15;
+	#const USER_UNALLOCATED16		= BIT_16;
+	#const USER_UNALLOCATED17		= BIT_17;
+	#const USER_UNALLOCATED18		= BIT_18;
+	#const USER_UNALLOCATED19		= BIT_19;
+	#const USER_UNALLOCATED20		= BIT_20;
+	#const USER_UNALLOCATED21		= BIT_21;
+	#const USER_UNALLOCATED22		= BIT_22;
+	#const USER_UNALLOCATED23		= BIT_23;
+	#const USER_UNALLOCATED24		= BIT_24;
+	#const USER_UNALLOCATED25		= BIT_25;
+	#const USER_UNALLOCATED26		= BIT_26;
+	#const USER_UNALLOCATED27		= BIT_27;
+	#const USER_UNALLOCATED28		= BIT_28;
+	#const USER_UNALLOCATED29		= BIT_29;
+	#const USER_UNALLOCATED30		= BIT_30;
+    #const USER_UNALLOCATED31		= BIT_31;
+    #const USER_UNALLOCATED32		= BIT_32;
+    #const USER_UNALLOCATED33		= BIT_33;
+    #const USER_UNALLOCATED34		= BIT_34;
+    #const USER_UNALLOCATED35		= BIT_35;
+    #const USER_UNALLOCATED36		= BIT_36;
+    #const USER_UNALLOCATED37		= BIT_37;
+    #const USER_UNALLOCATED38		= BIT_38;
+    #const USER_UNALLOCATED39		= BIT_39;
+    #const USER_UNALLOCATED40		= BIT_40;
+    #const USER_UNALLOCATED41		= BIT_41;
+    #const USER_UNALLOCATED42		= BIT_42;
+    #const USER_UNALLOCATED43		= BIT_43;
+    #const USER_UNALLOCATED44		= BIT_44;
+    #const USER_UNALLOCATED45		= BIT_45;
+    #const USER_UNALLOCATED46		= BIT_46;
+    #const USER_UNALLOCATED47		= BIT_47;
+    #const USER_UNALLOCATED48		= BIT_48;
+    #const USER_UNALLOCATED49		= BIT_49;
+    #const USER_UNALLOCATED50		= BIT_50;
+    #const USER_UNALLOCATED51		= BIT_51;
+    #const USER_UNALLOCATED52		= BIT_52;
+	#const USER_UNALLOCATED53		= BIT_53;
+	#const USER_UNALLOCATED54		= BIT_54;
+	#const USER_UNALLOCATED55		= BIT_55;
+	#const USER_UNALLOCATED56		= BIT_56;
+    #const USER_UNALLOCATED57		= BIT_57;
+    #const USER_UNALLOCATED58		= BIT_58;
+    #const USER_UNALLOCATED59		= BIT_59;
+    #const USER_UNALLOCATED60		= BIT_60;
+    #const USER_UNALLOCATED61		= BIT_61;
+    #const USER_UNALLOCATED62		= BIT_62;
+    #const USER_UNALLOCATED63		= BIT_63;
+    #const USER_UNALLOCATED64		= BIT_64;
+
+
+	/* TORRENT FLAGS */
+	#const TORRENT_UNALLOCATED1		= BIT_1;
+	#const TORRENT_UNALLOCATED2		= BIT_2;
+	#const TORRENT_UNALLOCATED3		= BIT_3;
+	#const TORRENT_UNALLOCATED4		= BIT_4;
+    #const TORRENT_UNALLOCATED5		= BIT_5;
+    #const TORRENT_UNALLOCATED6		= BIT_6;
+    #const TORRENT_UNALLOCATED7		= BIT_7;
+    #const TORRENT_UNALLOCATED8		= BIT_8;
+    #const TORRENT_UNALLOCATED9		= BIT_9;
+    #const TORRENT_UNALLOCATED10	= BIT_10;
+    #const TORRENT_UNALLOCATED11	= BIT_11;
+    #const TORRENT_UNALLOCATED12	= BIT_12;
+    #const TORRENT_UNALLOCATED13	= BIT_13;
+    #const TORRENT_UNALLOCATED14	= BIT_14;
+    #const TORRENT_UNALLOCATED15	= BIT_15;
+    #const TORRENT_UNALLOCATED16	= BIT_16;
+
+
+	/* PEER FLAGS */
+	const PEER_SEEDER				= BIT_1;
+	#const PEER_UNALLOCATED2		= BIT_2;
+	#const PEER_UNALLOCATED3		= BIT_3;
+	#const PEER_UNALLOCATED4		= BIT_4;
+	#const PEER_UNALLOCATED5		= BIT_5;
+	#const PEER_UNALLOCATED6	    = BIT_6;
+	#const PEER_UNALLOCATED5		= BIT_7;
+    #const PEER_UNALLOCATED8		= BIT_8;
+    #const PEER_UNALLOCATED9		= BIT_9;
+    #const PEER_UNALLOCATED10		= BIT_10;
+    #const PEER_UNALLOCATED11		= BIT_11;
+    #const PEER_UNALLOCATED12		= BIT_12;
+    #const PEER_UNALLOCATED13		= BIT_13;
+    #const PEER_UNALLOCATED14		= BIT_14;
+    #const PEER_UNALLOCATED15		= BIT_15;
+    #const PEER_UNALLOCATED16		= BIT_16;
+
+}
+?>
