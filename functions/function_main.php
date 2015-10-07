@@ -538,28 +538,6 @@ function htmlsafechars($txt = '') {
     return $txt;
 }
 
-//-- SQL Query Count --//
-$qtme['querytime'] = 0;
-
-function sql_query($querytme) {
-    global $queries, $qtme, $querytime, $query_stat;
-
-    $qtme               = isset($qtme) && is_array($qtme) ? $qtme : array();
-    $qtme['query_stat'] = isset($qtme['query_stat']) && is_array($qtme['query_stat']) ? $qtme['query_stat'] : array();
-
-    $queries++;
-    $query_start_time     = microtime(true); //-- Start Time --//
-    $result               = mysql_query($querytme);
-    $query_end_time       = microtime(true); //-- End Time --//
-    $query_time           = ($query_end_time - $query_start_time);
-    $querytime            = $querytime + $query_time;
-    $qtme['querytime']    = (isset($qtme['querytime']) ? $qtme['querytime'] : 0) + $query_time;
-    $query_time           = substr($query_time, 0, 8);
-    $qtme['query_stat'][] = array('seconds' => $query_time,
-                                  'query'   => $querytme);
-    return $result;
-}
-
 if (file_exists(ROOT_DIR . "install/index.php")) {
     echo("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Transitional//EN\"
     \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd\">
