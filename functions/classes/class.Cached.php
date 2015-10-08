@@ -148,45 +148,6 @@ class cached {
 		$delete += $Memcached->delete_value($seed_key, 5); $delete += $Memcache->delete_value($leech_key, 5); $delete += $Memcache->delete_value($comp_key, 5);
 		return (bool)$delete;
 	}
-	
-	public static function get_user_from_passkey($passkey) {
-		global $Memcache, $db;
-		
-		if (strlen($passkey) != 32 || !_string::is_hex($passkey))
-			return false;
-		
-
-		$key = 'user::passkey::' . $passkey;
-        $user = $Memcache->get_value($key);
-        if ($user === false) {
-			$usersql = 'SELECT id, class FROM users WHERE passkey = ' . sqlesc($passkey);
-			$userq = $db->query($usersql) or sqlerr(__FILE__, __LINE__);
-			if (!$userq->num_rows) {
-				$Memcache->add_value($key, 0, self::BAD_TTL_TIME);
-				return false;
-			}
-			$user = $userq->fetch_assoc();
-			$userq->free();
-			$user['id'] = (int)$user['id'];
-			$user['class'] = (int)$user['class'];
-			$Memcache->add_value($key, $user, self::TTL_TIME);
-		}
-		elseif (!$user)
-			return false;
-		return $user;
-	}
-	
-	public static function remove_passkey($passkey, $make_bad = false) {
-		global $Memcache;
-		
-		if (strlen($passkey) != 32 || !_string::is_hex($passkey))
-			return false;
-		
-		$key = 'user::passkey::' . $passkey;
-		$Memcache->delete_value($key);
-		if ($make_bad)
-			$Memcache->cache_value($key, 0, self::BAD_TTL_TIME);
-	}
 
     public static function forum_stats() {
         global $forum_width, $image_dir, $site_url, $lang, $Memcache, $db, $tpl;
