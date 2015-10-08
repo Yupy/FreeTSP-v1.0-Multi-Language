@@ -232,7 +232,6 @@ EOD;
 
                 $passkey = md5($arr['username'] . get_date_time() . $arr['passhash']);
                 $updateset[] = "passkey = " . sqlesc($passkey);
-				cached::remove_passkey($passkey);
             }
 
             $action = "torrents";
