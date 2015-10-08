@@ -52,9 +52,13 @@ if ($seeder)
 
 db_connect();
 
-$user = cached::get_user_from_passkey($passkey);
-if (!$user) {
-    err("Invalid Passkey! Download the .torrent file again from " . $site_url);
+$valid = @$db->query("SELECT COUNT(id)
+                      FROM users
+                      WHERE passkey = " . sqlesc($passkey));
+$valid = @$valid->fetch_row();
+
+if ($valid[0] != 1) {
+    err("Invalid Passkey! Download the .torrent file again from $site_url");
 }
 
 $torrent = cached::get_torrent_from_hash($info_hash);
