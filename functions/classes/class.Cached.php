@@ -50,7 +50,7 @@ class cached {
     public static function get_torrent_from_hash($info_hash) {
         global $Memcache, $db;
 
-        $key = 'torrent::hash::' . $info_hash;
+        $key = 'torrent::hash::' . md5($info_hash);
 
         $torrent = $Memcache->get_value($key);
         if ($torrent === false) {
@@ -139,7 +139,7 @@ class cached {
 	public static function remove_torrent($info_hash) {
 		global $Memcache;
 
-		$key = 'torrent::hash::' . $info_hash;
+		$key = 'torrent::hash::' . md5($info_hash);
 		$torrent = $Memcache->get_value($key);
                if ($torrent === false)
 			return false;
