@@ -28,7 +28,7 @@ if (isset($uid) && $tid > 0 )
     $count = $db->query("SELECT COUNT(id)
                         FROM thanks
                         WHERE userid = $uid
-                        AND torrentid = $tid"));
+                        AND torrentid = $tid");
 	$count = $count->fetch_row();
 
     if ($count[0] == 0)
