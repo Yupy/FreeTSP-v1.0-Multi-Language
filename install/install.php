@@ -178,7 +178,7 @@ class installer
 
         $ext = get_loaded_extensions();
 
-        if (!in_array('mysql', $ext))
+        if (!in_array('mysqli', $ext))
         {
             $warnings[] = "<strong>{$lang['warn_mysql_libary']}</strong>";
         }
