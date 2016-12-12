@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
 {
     $email = trim($_POST['email']);
 
-    if (!validemail($email))
+    if (!security::valid_email($email))
     {
         error_message("error",
                       "{$lang[gbl_error]}",
