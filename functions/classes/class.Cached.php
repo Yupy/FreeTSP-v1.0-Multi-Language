@@ -26,7 +26,7 @@ class cached {
 
 	    $key = 'banned::' . $ip;
 		if (($banned = $Memcache->get_value($key)) === false) {
-            $res = $db->query("SELECT comment FROM bans WHERE '" . $nip . "' >= first AND '" . $nip . "' <= last");
+            $res = $db->query("SELECT comment FROM bans WHERE INET_ATON('" . $nip . "') >= first AND AND INET_ATON('" . $nip . "') <= last");
             if ($res->num_rows) {
                 $comment = $res->fetch_row();
                 $ban_reason = $comment[0];
